@@ -4,4 +4,6 @@ COPY . /node/app
 
 WORKDIR /node/app
 
+RUN yarn
+
 CMD [ "yarn", "dev" ]

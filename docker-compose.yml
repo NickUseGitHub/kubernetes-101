@@ -5,3 +5,6 @@ services:
       context: .
     volumes: 
       - .:/node/app
+      - /node/app/node_modules
+    ports:
+      - 80:3000
