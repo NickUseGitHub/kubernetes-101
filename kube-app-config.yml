@@ -28,7 +28,7 @@ spec:
         app: nick-app
     spec:
       containers:
-      - image: nick-app:v1
+      - image: nickdockernick/nick-node-app:v1
         imagePullPolicy: IfNotPresent
         name: nick-app
         resources: {}
