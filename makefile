@@ -1,4 +1,4 @@
-main: dev
+main: dev logs
 
 dev:
 	docker-compose up --build -d --remove-orphans
