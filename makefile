@@ -1,10 +1,10 @@
-main: app-dev
+main: dev
 
-app-dev:
+dev:
 	docker-compose up --build -d --remove-orphans
 
-app-down:
+down:
 	docker-compose down
 
-app-logs:
-	docker-compose logs -f api
+logs:
+	docker-compose logs -f nodeapp
