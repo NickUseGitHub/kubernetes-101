@@ -1,11 +1,11 @@
-FROM node:8.11
+FROM node:8-alpine
 
 WORKDIR /node/app
 
 COPY . .
 
-RUN yarn \
-  && chown -R node:node /node/app/*
+#RUN yarn \
+#  && chown -R node:node /node/app/*
 
 USER node:node
 
