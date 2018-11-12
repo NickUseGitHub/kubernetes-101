@@ -1,17 +1,17 @@
-import 'dotenv/config'
-import express from 'express'
+import http from 'http'
 
-const app = express()
-const port = process.env.PORT
+const port = 3000
+const requestHandler = (request, response) => {
+  console.log(request.url)
+  response.end('Hello Node.js Server!')
+}
 
-app.get('/', function(req, res) {
-  res.send('hello world from express app')
-})
+const server = http.createServer(requestHandler)
 
-app.listen(port, (err) => {
+server.listen(port, (err) => {
   if (err) {
-    console.log(err)
-  } else {
-    console.log(`listen on port[${port}]`)
+    return console.log('something bad happened', err)
   }
+
+  console.log(`server is listening on ${port}`)
 })
