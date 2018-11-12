@@ -40,25 +40,3 @@ spec:
       securityContext: {}
       terminationGracePeriodSeconds: 30
 status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  creationTimestamp: null
-  labels:
-    app: nick-app
-  name: nick-app
-  selfLink: /api/v1/namespaces/default/services/nick-app
-spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - nodePort: 32000
-    port: 3000
-    protocol: TCP
-    targetPort: 3000
-  selector:
-    app: nick-app
-  sessionAffinity: None
-  type: LoadBalancer
-status:
-  loadBalancer: {}
