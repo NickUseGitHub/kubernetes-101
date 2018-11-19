@@ -2,13 +2,15 @@ FROM node:8-alpine
 
 WORKDIR /node/app
 
-COPY . .
+COPY package.json .
 
 RUN yarn \
  && chown -R node:node /node/app/*
 
+COPY . .
+
 USER node:node
 
-CMD [ "yarn", "start" ]
-
 EXPOSE 3000
+
+CMD [ "yarn", "start" ]
