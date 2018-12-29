@@ -1,12 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: nick-ingress
+  name: test-ingress
+  namespace: app-a
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: nick.com
-      http:
-        paths:
-          - backend:
-              serviceName: nickservice
-              servicePort: 80
+  - http:
+      paths:
+      - path: /testa
+        backend:
+          serviceName: node-a-svc
+          servicePort: 3001
