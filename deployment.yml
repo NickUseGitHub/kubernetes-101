@@ -2,42 +2,21 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   namespace: app-a
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  creationTimestamp: null
-  generation: 1
   labels:
     app: nick-app
   name: nick-app
-  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/nick-app
 spec:
-  progressDeadlineSeconds: 600
   replicas: 3
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: nick-app
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: nick-app
     spec:
       containers:
       - image: nickdockernick/nick-node-app:v1
-        imagePullPolicy: IfNotPresent
         name: nick-app
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status: {}
+        ports:
+        - containerPort: 3000
