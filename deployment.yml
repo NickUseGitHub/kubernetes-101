@@ -1,6 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  namespace: app-a
   annotations:
     deployment.kubernetes.io/revision: "1"
   creationTimestamp: null
