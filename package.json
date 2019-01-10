@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.js",
-    "build": "babel src/index.js --out-file build/app.js",
-    "start": "node build/app.js"
+    "build:dev": "env-cmd ./env/.env.dev babel src/index.js --out-file build/app.js",
+    "start:dev": "env-cmd ./env/.env.dev node build/app.js",
+    "build:prod": "env-cmd ./env/.env babel src/index.js --out-file build/app.js",
+    "start:prod": "env-cmd ./env/.env node build/app.js"
   },
   "keywords": [],
   "author": "",
