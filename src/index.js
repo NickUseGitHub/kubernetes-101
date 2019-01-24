@@ -2,9 +2,10 @@ import http from 'http'
 
 const port = process.env.PORT || 3000
 const requestHandler = (request, response) => {
-  console.log('request on', request.url)
   const something = process.env.SOMETHING
-  response.end(`Hello Node.js Server:V2! This is env:SOMETHING = ${something}`)
+
+  response.setHeader('Content-Type', 'text/html; charset=utf-8')
+  response.end(`Hello Node.js Server:V3!<br />This is env:SOMETHING = ${something}<br/> uri:${request.url}`)
 }
 
 const server = http.createServer(requestHandler)
