@@ -2,7 +2,7 @@ import http from 'http'
 
 const port = process.env.PORT || 3000
 const requestHandler = (request, response) => {
-  console.log(request.url)
+  console.log('request on', request.url)
   const something = process.env.SOMETHING
   response.end(`Hello Node.js Server:V2! This is env:SOMETHING = ${something}`)
 }
